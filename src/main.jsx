@@ -1,52 +1,21 @@
-
 import React, { useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { QRCodeSVG } from 'qrcode.react';
 import {
-  ArrowDown, ArrowLeft, ArrowRight, Check, Gift, Heart,
-  Menu, RotateCcw, Sparkles, Sun, X
+  ArrowDown,
+  ArrowLeft,
+  ArrowRight,
+  Check,
+  Gift,
+  Heart,
+  Menu,
+  RotateCcw,
+  Sparkles,
+  Sun,
+  X
 } from 'lucide-react';
 import './styles.css';
-
-/* Símbolo vetorial: desenho idêntico em iPhone, Android e computador */
-function BrandMark({ className = '', variant = 'hero' }) {
-  const gradientId = React.useId();
-
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 160 160"
-      xmlns="http://www.w3.org/2000/svg"
-      role="img"
-      aria-label="Símbolo da coleção de verão"
-    >
-      {variant === 'hero' && (
-        <>
-          <defs>
-            <linearGradient id={gradientId} x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#79e34f" />
-              <stop offset="100%" stopColor="#32b72c" />
-            </linearGradient>
-          </defs>
-          <rect
-            x="5" y="5" width="150" height="150" rx="29"
-            fill={`url(#${gradientId})`}
-          />
-          <rect
-            x="7" y="7" width="146" height="146" rx="27"
-            fill="none" stroke="#238d28" strokeOpacity=".3" strokeWidth="3"
-          />
-        </>
-      )}
-
-      <polygon
-        points="80,17 94,56 126,31 108,68 148,80 108,92 126,129 94,104 80,143 66,104 34,129 52,92 12,80 52,68 34,31 66,56"
-        fill={variant === 'hero' ? '#ffffff' : '#ffc33d'}
-      />
-    </svg>
-  );
-}
 
 const products = {
   chinelo: [
@@ -144,7 +113,7 @@ function Home() {
             </div>
 
             <div className="hero-stamp">
-              <Sun size={35} />
+              <span>☀</span>
               <small>DIAS DE SOL<br />E BOAS HISTÓRIAS</small>
             </div>
           </div>
@@ -154,8 +123,14 @@ function Home() {
             <div className="wave wave-one" />
             <div className="wave wave-two" />
 
+            {/* Coqueiro vetorial inspirado na ecobag */}
             <div className="palm" aria-hidden="true">
-              <BrandMark />
+              <svg viewBox="0 0 180 220" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                <g fill="currentColor">
+                  <path d="M91 91 C67 59 35 48 8 57 C39 60 67 76 93 98 C72 57 65 27 43 8 C56 39 72 69 94 99 C87 58 94 28 113 7 C104 39 101 69 97 101 C116 65 143 47 171 50 C143 62 117 82 98 105 C137 82 163 87 178 108 C148 98 120 101 99 111 C135 113 155 136 157 163 C140 137 120 119 97 113 C116 147 115 174 99 196 C104 164 101 137 94 114 C87 151 72 173 50 185 C67 155 78 132 90 110 C59 137 33 145 9 136 C39 127 65 111 91 103 C56 113 29 106 13 88 C43 96 68 97 91 91 Z" />
+                  <path d="M88 96 C99 119 109 146 111 172 C113 192 108 207 100 220 L127 220 C136 198 133 176 127 151 C120 125 106 105 96 91 Z" />
+                </g>
+              </svg>
             </div>
 
             <div className="hero-label">
@@ -170,11 +145,12 @@ function Home() {
 
         <div className="ticker">
           <span>FEITO PARA O SOL</span>
-          <BrandMark variant="flat" className="ticker-mark" />
+          <i>✳︎</i>
           <span>FEITO PARA VOCÊ</span>
-          <BrandMark variant="flat" className="ticker-mark" />
+          <i>✳︎</i>
           <span>SEU VERÃO, SEU KIT</span>
-          <BrandMark variant="flat" className="ticker-mark" />
+          <i>✳︎</i>
+          <span>FEITO PARA O SOL</span>
         </div>
 
         <section className="intro section" id="sobre">
@@ -200,7 +176,11 @@ function Home() {
 
           <div className="preset-grid">
             {presets.map((p, i) => (
-              <article className="preset-card" key={p.title} style={{ '--accent': p.color }}>
+              <article
+                className="preset-card"
+                key={p.title}
+                style={{ '--accent': p.color }}
+              >
                 <div className="preset-top">
                   <span>0{i + 1} / 03</span>
                   <span className="color-dot" />
@@ -225,7 +205,7 @@ function Home() {
         </section>
 
         <section className="builder-banner">
-          <BrandMark variant="flat" className="banner-sun" />
+          <div className="banner-sun" aria-hidden="true">✳︎</div>
           <div className="section-kicker">A SUA COMBINAÇÃO, AS SUAS CORES</div>
           <h2>Não encontrou<br />a sua cara? <em>Crie!</em></h2>
           <p>
@@ -382,7 +362,9 @@ function Builder() {
                   className={step === i ? 'step active' : step > i ? 'step complete' : 'step'}
                   onClick={() => setStep(i)}
                 >
-                  <span>{step > i ? <Check size={14} /> : i + 1}</span>
+                  <span>
+                    {step > i ? <Check size={14} /> : i + 1}
+                  </span>
                   {label}
                 </button>
               ))}
@@ -451,7 +433,10 @@ function Builder() {
               </div>
 
               <div className="summary-item">
-                <div className="summary-sticker" style={{ '--sticker': chosen.adesivo.hex }}>
+                <div
+                  className="summary-sticker"
+                  style={{ '--sticker': chosen.adesivo.hex }}
+                >
                   {chosen.adesivo.art.split('\n')[0]}
                 </div>
                 <div>
