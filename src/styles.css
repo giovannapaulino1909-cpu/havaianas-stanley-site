@@ -219,7 +219,8 @@ button { font: inherit; cursor: pointer; }
   transform: rotate(7deg);
 }
 
-/* ÚNICA ALTERAÇÃO: coqueiro SVG no lugar do asterisco */
+/* COQUEIRO ORIGINAL */
+
 .palm {
   position: absolute;
   z-index: 3;
@@ -509,6 +510,7 @@ button { font: inherit; cursor: pointer; }
 .footer small { font-size: 10px; color: #a69b92; }
 
 /* MONTAGEM DOS KITS */
+
 .builder-page {
   background: #fffaf4;
   min-height: 80vh;
@@ -751,6 +753,7 @@ button { font: inherit; cursor: pointer; }
 .sticker-art svg { margin-top: 9px; }
 
 /* TELA DE CONCLUSÃO */
+
 .success-panel {
   max-width: 900px;
   margin: 35px auto 0;
@@ -792,6 +795,7 @@ button { font: inherit; cursor: pointer; }
 }
 
 /* TABLETS */
+
 @media (max-width: 850px) {
   .hero { padding: 50px 6%; grid-template-columns: 1fr 1fr; gap: 3%; }
   .hero-art { min-height: 380px; }
@@ -806,6 +810,7 @@ button { font: inherit; cursor: pointer; }
 }
 
 /* CELULARES */
+
 @media (max-width: 620px) {
   .header { height: 65px; padding: 0 5%; }
   .brand { font-size: 20px; letter-spacing: -1px; }
@@ -893,7 +898,6 @@ button { font: inherit; cursor: pointer; }
   .intro p { font-size: 13px; }
   .section-heading { display: block; }
   .section-heading > .text-link { margin-top: 20px; }
-
   .preset-grid { grid-template-columns: 1fr; gap: 17px; }
 
   .preset-card {
@@ -938,6 +942,7 @@ button { font: inherit; cursor: pointer; }
   .footer p { margin: 0; }
 
   /* MONTAGEM MOBILE */
+
   .builder-page { padding: 25px 5% 60px; }
   .back-link { margin-bottom: 25px; }
   .builder-head h1 { font-size: 53px; }
@@ -968,8 +973,10 @@ button { font: inherit; cursor: pointer; }
   .sticker-art { height: 112px; font-size: 17px; }
   .picker-actions .button { padding: 12px 15px; font-size: 11px; }
   .reset-btn { font-size: 10px; }
+
   .summary-item img,
   .summary-sticker { width: 58px; height: 56px; }
+
   .gift-summary img { width: 56px; height: 56px; }
 
   .success-panel {
@@ -985,10 +992,96 @@ button { font: inherit; cursor: pointer; }
 }
 
 /* CELULARES PEQUENOS */
+
 @media (max-width: 380px) {
   .hero h1 { font-size: 57px; }
   .hero-art { min-height: 300px; }
   .hero-label { font-size: 8px; letter-spacing: 1.5px; }
   .choice-grid { gap: 5px; }
   .choice b { font-size: 9px; }
+}
+
+/* PREÇO FIXO DO KIT E CARTELAS REAIS DE ADESIVOS */
+
+.preset-price {
+  display: inline-block;
+  margin-top: 8px;
+  color: #08745f;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.summary-price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  color: #81756c;
+  font-size: 11px;
+}
+
+.summary-price strong {
+  color: #08745f;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.summary-combination {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+  color: #81756c;
+  font-size: 10px;
+}
+
+.summary-combination b {
+  color: #24221f;
+  font-size: 11px;
+  text-align: right;
+}
+
+/* IMAGENS DAS CARTELAS */
+
+.sticker-art {
+  height: 150px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sticker-sheet-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: normal;
+}
+
+.summary-sticker {
+  width: 68px;
+  height: 65px;
+  flex: 0 0 68px;
+  overflow: hidden;
+  border-radius: 9px;
+  background: #fff7ef;
+  transform: none;
+}
+
+.summary-sticker img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: normal;
+}
+
+@media (max-width: 620px) {
+  .sticker-art { height: 112px; }
+  .summary-sticker { width: 58px; height: 56px; flex-basis: 58px; }
+  .preset-price { font-size: 15px; }
 }
