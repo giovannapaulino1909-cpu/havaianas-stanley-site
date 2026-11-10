@@ -101,6 +101,7 @@ button {
   display: none;
   border: 0;
   background: none;
+  color: var(--ink);
 }
 
 /* BOTÕES */
@@ -214,10 +215,6 @@ button {
   transform: rotate(-9deg);
 }
 
-.hero-stamp span {
-  font-size: 35px;
-}
-
 .hero-stamp small {
   font-size: 8px;
   line-height: 1.4;
@@ -225,7 +222,7 @@ button {
   letter-spacing: 1px;
 }
 
-/* ILUSTRAÇÃO DE VERÃO */
+/* ILUSTRAÇÃO DO PÔR DO SOL */
 
 .hero-art {
   min-height: 460px;
@@ -270,15 +267,23 @@ button {
   transform: rotate(7deg);
 }
 
+/* MARCA VETORIAL: NÃO DEPENDE DE EMOJI OU FONTE */
+
 .palm {
   position: absolute;
   z-index: 3;
   right: 14%;
   top: 19%;
-  font-size: 190px;
-  color: #92315f;
+  width: 150px;
+  height: 150px;
   transform: rotate(-18deg);
-  line-height: 1;
+}
+
+.palm svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 5px 5px #00000024);
 }
 
 .hero-label {
@@ -317,13 +322,14 @@ button {
 /* FAIXA VERDE */
 
 .ticker {
-  height: 58px;
+  min-height: 58px;
   background: #08745f;
   color: #fff9e9;
   display: flex;
   align-items: center;
   justify-content: space-around;
   gap: 15px;
+  padding: 0 20px;
   overflow: hidden;
   font-size: 11px;
   font-weight: 800;
@@ -331,10 +337,11 @@ button {
   white-space: nowrap;
 }
 
-.ticker i {
-  font-style: normal;
-  color: #ffc33d;
-  font-size: 20px;
+.ticker-mark {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  display: block;
 }
 
 /* SEÇÕES */
@@ -494,8 +501,8 @@ button {
 
 .banner-sun {
   position: absolute;
-  font-size: 210px;
-  color: #ffda82;
+  width: 210px;
+  height: 210px;
   left: -30px;
   top: -70px;
   opacity: .55;
@@ -1052,7 +1059,8 @@ button {
   }
 
   .palm {
-    font-size: 145px;
+    width: 125px;
+    height: 125px;
   }
 
   .section {
@@ -1158,25 +1166,12 @@ button {
     height: 105px;
   }
 
-  /* Símbolo decorativo: estrela tipográfica, sem emoji */
-
   .palm {
-    font-size: 0;
-    line-height: 1;
+    width: 112px;
+    height: 112px;
     right: 15%;
     top: 19%;
-    color: #92315f;
-    font-family: Arial, Helvetica, sans-serif;
     transform: rotate(-18deg);
-  }
-
-  .palm::before {
-    content: "✳";
-    display: block;
-    font-size: 78px;
-    line-height: 1;
-    color: #92315f;
-    font-family: Arial, Helvetica, sans-serif;
   }
 
   .hero-label {
@@ -1193,23 +1188,23 @@ button {
   }
 
   .ticker {
-    height: 48px;
-    justify-content: flex-start;
-    padding: 0 20px;
-    gap: 25px;
+    min-height: 48px;
+    justify-content: space-around;
+    padding: 0 12px;
+    gap: 10px;
     font-size: 9px;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
+  }
+
+  .ticker-mark {
+    width: 18px;
+    height: 18px;
+    flex-basis: 18px;
   }
 
   .ticker span:nth-of-type(n + 3),
-  .ticker i:nth-of-type(n + 3) {
+  .ticker .ticker-mark:nth-of-type(n + 3) {
     display: none;
-  }
-
-  .ticker i {
-    font-size: 15px;
-    color: #ffc33d;
-    font-style: normal;
   }
 
   .section {
@@ -1287,7 +1282,8 @@ button {
   }
 
   .banner-sun {
-    font-size: 130px;
+    width: 130px;
+    height: 130px;
   }
 
   .builder-banner p {
@@ -1479,8 +1475,9 @@ button {
     min-height: 300px;
   }
 
-  .palm::before {
-    font-size: 66px;
+  .palm {
+    width: 100px;
+    height: 100px;
   }
 
   .hero-label {
